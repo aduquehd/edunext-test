@@ -16,7 +16,7 @@ class CustomerViewSet(APIView):
             serializer = CustomerSetUpSerializer(customer_setup_data, many=False)
             return Response(serializer.data)
         except (CustomerSetUp.DoesNotExist, ValueError):
-            return Response(data={'message': "Customer Doesn't exists"}, status=status.HTTP_404_NOT_FOUND)
+            return Response(data={'message': "Customer Setup Doesn't exists"}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             return Response(data={'message': "Unexpected error occurred"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
@@ -41,7 +41,7 @@ class CustomerViewSet(APIView):
             return Response(data=data, status=status.HTTP_200_OK)
 
         except CustomerSetUp.DoesNotExist:
-            return Response(data={'message': "User doesn't exist"}, status=status.HTTP_404_NOT_FOUND)
+            return Response(data={'message': "Customer Setup doesn't exist"}, status=status.HTTP_404_NOT_FOUND)
 
         except (KeyError, ValueError):
             response_data = {'message': "Customer Setup data has an incorrect json format"}
