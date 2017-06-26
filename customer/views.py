@@ -1,9 +1,9 @@
+import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import CustomerSetUp
 from .serializer import CustomerSetUpSerializer
-import json
 
 
 class CustomerViewSet(APIView):
